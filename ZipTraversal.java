@@ -12,6 +12,7 @@ public void extract(ZipFile zip) {
         InputStream istr = zipFile.getInputStream(zipEntry);
         final OutputStream os = Files.newOutputStream(file.toPath());
         bos  = new BufferedOutputStream(os);
+	//copy streams
         IOUtils.copy(bis, bos);
 	
     }
