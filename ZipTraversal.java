@@ -9,9 +9,13 @@ public void extract(ZipFile zip) {
         ZipEntry zipEntry = entries.nextElement();
         ⋮
         File file = new File(toDir, zipEntry.getName())
-        InputStream istr = zipFile.getInputStream(zipEntry);
+	try{ 
+        	InputStream istr = zipFile.getInputStream(zipEntry);
+	}catch(Exception e) {
+	}
         final OutputStream os = Files.newOutputStream(file.toPath());
         bos  = new BufferedOutputStream(os);
+	//copy streams
         IOUtils.copy(bis, bos);
 	
     }
